@@ -80,4 +80,10 @@ public class ClubController {
         return new ResponseEntity<>(clubs, HttpStatus.OK);
     }
 
+    @GetMapping("/clubs/search")
+    public ResponseEntity<?> searchClubs(@RequestParam("query") String query){
+        List<ClubDto> clubs = clubService.searchClubs(query);
+        return new ResponseEntity<>(clubs, HttpStatus.OK);
+    }
+
 }
